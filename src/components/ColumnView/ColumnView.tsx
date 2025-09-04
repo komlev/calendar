@@ -22,7 +22,7 @@ export const ColumnView: FC<Props> = ({ year }) => {
             {MONTHS_NAMES.map((name, index) => (
               <th
                 key={`${name}_${index}`}
-                className="p-1 text-center text-red-600 font-bold text-sm"
+                className="p-1 text-center text-sm font-bold text-red-600"
               >
                 {name}
               </th>

@@ -44,7 +44,7 @@ export const SettingsSelect = () => {
     <>
       <details>
         <summary>Settings</summary>
-        <ul className="bg-base-100 rounded-t-none p-2 justify-self-end">
+        <ul className="bg-base-100 justify-self-end rounded-t-none p-2">
           <li>
             <button
               className="whitespace-nowrap"
@@ -75,7 +75,7 @@ export const SettingsSelect = () => {
           confirmText={confirmText}
           cancelText={cancelText}
         />,
-        document.body,
+        document.body
       )}
       {createPortal(
         <ImportModal
@@ -84,7 +84,7 @@ export const SettingsSelect = () => {
             setIsImportModalOpen(false);
           }}
         />,
-        document.body,
+        document.body
       )}
     </>
   );

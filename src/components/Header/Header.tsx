@@ -8,11 +8,11 @@ export const Header = () => {
   const { tab } = useSettings();
 
   return (
-    <header className="bg-base-100 navbar shadow-sm z-50">
+    <header className="bg-base-100 navbar z-50 shadow-sm">
       <div className="flex-1">
         <div className="flex gap-2">
           <div className="focusable-neutral flex w-fit items-center gap-1 rounded-sm text-2xl font-black">
-            <span className="text-purple-600 hidden md:block text-shadow-xs">
+            <span className="hidden text-purple-600 text-shadow-xs md:block">
               <span className="text-amber-500">Year</span>Planner
             </span>
           </div>

@@ -20,13 +20,13 @@ export const MonthsItem: FC<Props> = memo(({ month, year, ...props }) => {
     <div
       {...props}
       className={clsx(
-        "flex flex-col rounded-lg shadow-sm p-4 bg-base-100",
+        "bg-base-100 flex flex-col rounded-lg p-4 shadow-sm",
         // style.MonthItem,
         // style[getMonthType(month)],
-        props.className,
+        props.className
       )}
     >
-      <div className="px-1 text-red-500 font-bold text-sm text-end border-b border-neutral-400">
+      <div className="border-b border-neutral-400 px-1 text-end text-sm font-bold text-red-500">
         {monthName}
       </div>
       <table role="grid">
@@ -36,8 +36,8 @@ export const MonthsItem: FC<Props> = memo(({ month, year, ...props }) => {
               <th
                 key={`${name}_${index}`}
                 className={clsx(
-                  "p-1 text-center font-bold text-sm aspect-square",
-                  index >= 5 && "text-neutral-500",
+                  "aspect-square p-1 text-center text-sm font-bold",
+                  index >= 5 && "text-neutral-500"
                 )}
               >
                 {name}
@@ -57,7 +57,7 @@ export const MonthsItem: FC<Props> = memo(({ month, year, ...props }) => {
                     date={date}
                     isSelected={id === command.selected}
                     event={calendar?.[id!]}
-                    className="w-15 h-15"
+                    className="h-15 w-15"
                   />
                 );
               })}

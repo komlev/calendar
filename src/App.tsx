@@ -15,7 +15,7 @@ export const App: FC = () => {
   const { tab = "Months", year } = useSettings();
   const { labelEditId } = useCommand();
   return (
-    <div className="flex flex-col gap-2 bg-base-200">
+    <div className="bg-base-200 flex flex-col gap-2">
       <Header />
       <Notifications />
       <Palette />

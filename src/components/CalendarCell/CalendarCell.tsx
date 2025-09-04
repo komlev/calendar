@@ -76,12 +76,12 @@ export const CalendarCell: FC<Props> = memo(
         onMouseEnter={onMouseEnter}
         className={clsx(
           props.className,
-          "text-xs relative font-medium bg-base-100",
-          date !== undefined && "text-center border border-neutral-300",
+          "bg-base-100 relative text-xs font-medium",
+          date !== undefined && "border border-neutral-300 text-center",
           isWeekend &&
-            "bg-red-50 dark:bg-stone-700 border-[1.5px] border-red-200 dark:border-stone-300",
+            "border-[1.5px] border-red-200 bg-red-50 dark:border-stone-300 dark:bg-stone-700",
           isToday && "inset-ring-2 inset-ring-amber-600",
-          isSelected && "inset-ring-2 inset-ring-blue-500",
+          isSelected && "inset-ring-2 inset-ring-blue-500"
         )}
       >
         {event && (
@@ -91,26 +91,26 @@ export const CalendarCell: FC<Props> = memo(
               onEditLabel(id);
             }}
             className={clsx(
-              "text-black font-bold",
-              "min-w-6 h-6 top-0.5 left-0.5 z-30 rounded-sm absolute whitespace-nowrap p-0.5 cursor-pointer hover:ring-2 ring-amber-600 hover:opacity-100",
-              !label && "opacity-0 flex items-center justify-center",
+              "font-bold text-black",
+              "absolute top-0.5 left-0.5 z-30 h-6 min-w-6 cursor-pointer rounded-sm p-0.5 whitespace-nowrap ring-amber-600 hover:opacity-100 hover:ring-2",
+              !label && "flex items-center justify-center opacity-0"
             )}
           >
-            {!label && <EditIcon className="w-4 text-primary-content" />}
+            {!label && <EditIcon className="text-primary-content w-4" />}
             {label}
           </span>
         )}
         <button
-          className="cursor-pointer w-full h-full flex relative z-2 items-end justify-end pr-0.5 pb-0.5"
+          className="relative z-2 flex h-full w-full cursor-pointer items-end justify-end pr-0.5 pb-0.5"
           onMouseDown={onMouseDown}
           onKeyDown={onKeyboardClick}
         >
           <span
             className={clsx(
-              "rounded-sm px-0.5 text-content font-semibold",
+              "text-content rounded-sm px-0.5 font-semibold",
               isWeekend
                 ? "bg-red-50 dark:bg-stone-700"
-                : "bg-white dark:bg-base-100",
+                : "dark:bg-base-100 bg-white"
             )}
           >
             {date.getDate()}
@@ -119,16 +119,16 @@ export const CalendarCell: FC<Props> = memo(
         {event && (
           <div
             className={clsx(
-              "absolute top-0 left-0 w-full h-full z-1",
-              (isToday || isSelected) && "p-0.5",
+              "absolute top-0 left-0 z-1 h-full w-full",
+              (isToday || isSelected) && "p-0.5"
             )}
           >
-            <div className="w-full h-full" style={{ background }} />
+            <div className="h-full w-full" style={{ background }} />
           </div>
         )}
       </td>
     );
-  },
+  }
 );
 
 CalendarCell.displayName = "CalendarCell";

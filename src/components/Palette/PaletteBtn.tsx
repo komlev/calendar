@@ -22,8 +22,8 @@ export const PaletteBtn: FC<Props> = ({
       role="button"
       className={clsx(
         props.className,
-        "border-2 border-black dark:border-white w-6 h-6 outline-offset-1 outline-orange-500 cursor-pointer aspect-square focus-visible:outline-blue-500 focus-visible:outline-2",
-        isSelected && "outline-2",
+        "aspect-square h-6 w-6 cursor-pointer border-2 border-black outline-offset-1 outline-orange-500 focus-visible:outline-2 focus-visible:outline-blue-500 dark:border-white",
+        isSelected && "outline-2"
       )}
       style={{ backgroundColor, backgroundImage, borderRadius: "100%" }}
     />

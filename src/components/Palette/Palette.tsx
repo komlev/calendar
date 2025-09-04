@@ -12,10 +12,10 @@ export const Palette = () => {
   const allPatterns = ["solid", ...Object.keys(patterns)];
 
   return (
-    <div className="flex justify-center sticky top-4 z-40">
-      <div className="flex flex-col md:flex-row gap-2 md:gap-4 bg-base-100/90 shadow-md p-2 rounded-md">
+    <div className="sticky top-4 z-40 flex justify-center">
+      <div className="bg-base-100/90 flex flex-col gap-2 rounded-md p-2 shadow-md md:flex-row md:gap-4">
         <div className="flex flex-col items-start gap-1">
-          <span className="text-xs font-medium text-base-content">Colors</span>
+          <span className="text-base-content text-xs font-medium">Colors</span>
           <div className="grid grid-flow-col grid-rows-2 gap-2">
             {Object.keys(colors)?.map((k) => {
               const isSelected = color === k;
@@ -35,7 +35,7 @@ export const Palette = () => {
         </div>
         <div className="border-l border-neutral-400" />
         <div className="flex flex-col items-start gap-1">
-          <span className="text-xs font-medium text-base-content">
+          <span className="text-base-content text-xs font-medium">
             Patterns
           </span>
           <div className="grid grid-flow-col grid-rows-2 gap-2">

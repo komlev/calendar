@@ -32,7 +32,7 @@ export const FormControl: FC<Props> = memo(
         htmlFor={id}
         className={clsx(
           "label text-error transition-opacity",
-          !error && "opacity-0",
+          !error && "opacity-0"
         )}
         aria-live="polite"
         role={error ? "alert" : undefined}
@@ -40,5 +40,5 @@ export const FormControl: FC<Props> = memo(
         {error || "-"}
       </label>
     </fieldset>
-  ),
+  )
 );

@@ -26,14 +26,14 @@ export const LinearView: FC<Props> = ({ year }) => {
             {DAYS_NAMES.map((name, index) => (
               <th
                 key={`${name}_${index}`}
-                className="p-1 text-center text-red-600 font-bold text-sm w-1/8"
+                className="w-1/8 p-1 text-center text-sm font-bold text-red-600"
               >
                 {name}
               </th>
             ))}
           </tr>
         </thead>
-        <tbody className="border border-gray-200 bg-base-100">
+        <tbody className="bg-base-100 border border-gray-200">
           {rows?.map((row, rowIndex) => {
             return (
               <tr key={rowIndex}>
@@ -54,8 +54,8 @@ export const LinearView: FC<Props> = ({ year }) => {
                       {dayIndex === 0 && (
                         <td
                           className={clsx(
-                            "p-1 text-center text-red-600 font-bold text-sm border-x border-gray-200",
-                            showMonth && "border-t",
+                            "border-x border-gray-200 p-1 text-center text-sm font-bold text-red-600",
+                            showMonth && "border-t"
                           )}
                         >
                           {showMonth ? MONTHS_NAMES[m] : ""}
