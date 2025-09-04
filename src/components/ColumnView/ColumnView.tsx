@@ -2,7 +2,6 @@ import type { FC } from "react";
 import { useCalendar } from "../../hooks/useCalendar";
 import { useCommand } from "../../hooks/useCommand";
 import { SHORT_MONTHS_NAMES } from "../../utils/date";
-import { padString } from "../../utils/string";
 import { CalendarCell } from "../CalendarCell/CalendarCell";
 import { useColumn } from "./useColumn";
 
