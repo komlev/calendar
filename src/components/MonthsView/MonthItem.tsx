@@ -21,6 +21,7 @@ export const MonthsItem: FC<Props> = memo(({ month, year, ...props }) => {
       {...props}
       className={clsx(
         "bg-base-100 flex flex-col rounded-lg p-4 shadow-sm",
+        "print:border print:p-2 print:shadow-none",
         // style.MonthItem,
         // style[getMonthType(month)],
         props.className
@@ -57,7 +58,7 @@ export const MonthsItem: FC<Props> = memo(({ month, year, ...props }) => {
                     date={date}
                     isSelected={id === command.selected}
                     event={calendar?.[id!]}
-                    className="h-15 w-15"
+                    className="h-15 w-15 print:h-12 print:w-12"
                   />
                 );
               })}

@@ -3,10 +3,21 @@ import { clearCalendar, exportCalendar } from "../../store/calendar";
 import { ConfirmModal } from "../ConfirmModal";
 import { useConfirmModal } from "../ConfirmModal/useConfirmModal";
 import { ImportModal } from "../ImportModal/ImportModal";
-import { useState } from "react";
+import {
+  useState,
+  type DetailedHTMLProps,
+  type FC,
+  type HTMLAttributes,
+} from "react";
 import { addNotification } from "../../store/notifications";
+import clsx from "clsx";
 
-export const SettingsSelect = () => {
+type Props = DetailedHTMLProps<
+  HTMLAttributes<HTMLUListElement>,
+  HTMLUListElement
+>;
+
+export const SettingsSelect: FC<Props> = (props) => {
   const {
     isOpen: isConfirmOpen,
     onClose: onConfirmClose,
@@ -42,7 +53,10 @@ export const SettingsSelect = () => {
 
   return (
     <>
-      <ul className="menu menu-horizontal px-1">
+      <ul
+        {...props}
+        className={clsx("menu menu-horizontal px-1", props.className)}
+      >
         <li>
           <details>
             <summary>Settings</summary>

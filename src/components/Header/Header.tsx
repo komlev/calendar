@@ -1,30 +1,28 @@
 import { useSettings } from "../../hooks/useSettings";
 import { onTabChange } from "../../store/settings";
+import { Logo } from "./Logo";
 import { SettingsSelect } from "./SettingsSelect";
 import { ViewsTabs } from "./ViewsTabs";
 import { YearSelector } from "./YearSelector";
 
 export const Header = () => {
-  const { tab } = useSettings();
+  const { tab, year } = useSettings();
 
   return (
-    <header className="bg-base-100 navbar z-50 shadow-sm">
-      <div className="flex-1">
+    <header className="bg-base-100 navbar z-50 shadow-sm print:shadow-none">
+      <div className="hidden gap-2 print:flex">
+        <Logo />
+        <div>{year}</div>
+        <div>{tab}</div>
+      </div>
+      <div className="flex-1 print:hidden">
         <div className="flex gap-2">
-          <div className="focusable-neutral flex w-fit items-center gap-1 rounded-sm text-2xl font-black">
-            <span className="flex items-center text-purple-600">
-              <span className="hidden text-amber-500 md:inline-block">
-                Year
-              </span>
-              <img src="/icon.svg" alt="YearPlanner Logo" className="h-5 w-5" />
-              <span className="hidden md:inline-block">Planner</span>
-            </span>
-          </div>
+          <Logo />
           <ViewsTabs tab={tab} onTabChange={onTabChange} />
           <YearSelector />
         </div>
       </div>
-      <div className="flex-none">
+      <div className="flex-none print:hidden">
         <SettingsSelect />
       </div>
     </header>

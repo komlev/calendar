@@ -3,7 +3,7 @@ import { ThemeSwitcher } from "../ThemeSwitcher/ThemeSwitcher";
 
 export const Footer = () => (
   <footer
-    className="footer footer-center bg-neutral z-10 py-4"
+    className="footer footer-center bg-neutral z-10 py-4 print:hidden"
     role="contentinfo"
   >
     <div className="text-neutral-content flex font-medium">

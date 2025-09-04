@@ -22,6 +22,14 @@ export const MONTHS_NAMES = Array.from({ length: 12 }, (_, i) => {
   return format(date, "MMMM");
 });
 
+export const SHORT_MONTHS_NAMES = Array.from({ length: 12 }, (_, i) => {
+  const date = startOfMonth(new Date());
+  // pick middle of the month
+  date.setDate(15);
+  date.setMonth(i);
+  return format(date, "MMM");
+});
+
 export const getDayId = (day: number, month: number, year: number) =>
   `${day}.${month}.${year}`;
 

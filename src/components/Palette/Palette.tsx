@@ -13,7 +13,7 @@ export const Palette = memo(() => {
   const allPatterns = ["solid", ...Object.keys(patterns)];
 
   return (
-    <div className="sticky top-4 z-40 flex justify-center">
+    <div className="sticky top-4 z-40 flex justify-center print:hidden">
       <div className="bg-base-100/90 flex flex-col gap-2 rounded-md p-2 shadow-md md:flex-row md:gap-4">
         <div className="flex flex-col items-start gap-1">
           <span className="text-base-content text-xs font-medium">Colors</span>

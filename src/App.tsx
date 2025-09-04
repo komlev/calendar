@@ -16,11 +16,11 @@ export const App: FC = () => {
   const { labelEditId } = useCommand();
 
   return (
-    <div className="bg-base-200 flex flex-col gap-2">
+    <div className="bg-base-200 print:bg-base-100 flex flex-col gap-2">
       <Header />
       <Notifications />
       <Palette />
-      <div className="p-1">
+      <div className="p-1 print:p-0">
         {tab === "Months" && <MonthsView year={year} />}
         {tab === "Linear" && <LinearView year={year} />}
         {tab === "Columns" && <ColumnView year={year} />}

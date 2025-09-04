@@ -30,3 +30,9 @@ body {
 .focusable-neutral:focus-visible {
   outline-color: var(--color-neutral-content);
 }
+
+@media print {
+  button {
+    display: flex;
+  }
+}

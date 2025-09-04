@@ -69,7 +69,7 @@ export const CalendarCell: FC<Props> = memo(
           clearInterval(longPress.current);
           longPress.current = setTimeout(() => {
             onEditLabel(id);
-          }, 1000);
+          }, 600);
         }
       }
     };
@@ -108,8 +108,8 @@ export const CalendarCell: FC<Props> = memo(
           date !== undefined && "border border-neutral-300 text-center",
           isWeekend &&
             "border-[1.5px] border-red-200 bg-red-50 dark:border-stone-300 dark:bg-stone-700",
-          isToday && "inset-ring-2 inset-ring-amber-600",
-          isSelected && "inset-ring-2 inset-ring-blue-500"
+          isToday && "inset-ring-2 inset-ring-amber-600 print:inset-ring-0",
+          isSelected && "inset-ring-2 inset-ring-blue-500 print:inset-ring-0"
         )}
       >
         {event && (
