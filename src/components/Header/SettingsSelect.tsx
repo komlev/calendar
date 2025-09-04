@@ -42,29 +42,33 @@ export const SettingsSelect = () => {
 
   return (
     <>
-      <details>
-        <summary>Settings</summary>
-        <ul className="bg-base-100 justify-self-end rounded-t-none p-2">
-          <li>
-            <button
-              className="whitespace-nowrap"
-              onClick={() => setIsImportModalOpen(true)}
-            >
-              Import Data
-            </button>
-          </li>
-          <li>
-            <button className="whitespace-nowrap" onClick={onExportData}>
-              Export Data
-            </button>
-          </li>
-          <li>
-            <button className="whitespace-nowrap" onClick={onClearData}>
-              Clear Data
-            </button>
-          </li>
-        </ul>
-      </details>
+      <ul className="menu menu-horizontal px-1">
+        <li>
+          <details>
+            <summary>Settings</summary>
+            <ul className="bg-base-100 justify-self-end rounded-t-none p-2">
+              <li>
+                <button
+                  className="whitespace-nowrap"
+                  onClick={() => setIsImportModalOpen(true)}
+                >
+                  Import Data
+                </button>
+              </li>
+              <li>
+                <button className="whitespace-nowrap" onClick={onExportData}>
+                  Export Data
+                </button>
+              </li>
+              <li>
+                <button className="whitespace-nowrap" onClick={onClearData}>
+                  Clear Data
+                </button>
+              </li>
+            </ul>
+          </details>
+        </li>
+      </ul>
       {createPortal(
         <ConfirmModal
           isOpen={isConfirmOpen}

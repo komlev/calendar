@@ -28,7 +28,7 @@ export const LabelModel: FC<Props> = ({ id, onClose }) => {
   return (
     <Modal
       footer={
-        <>
+        <div className="flex w-full flex-col-reverse justify-end gap-2 sm:flex-row">
           <button
             id="modal-cancel-btn"
             type="button"
@@ -40,7 +40,7 @@ export const LabelModel: FC<Props> = ({ id, onClose }) => {
           <button className="btn btn-primary" onClick={onSave}>
             Set Label
           </button>
-        </>
+        </div>
       }
       title="Cell Label"
       isOpen={isOpen}

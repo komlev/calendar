@@ -32,7 +32,7 @@ export const ImportModal: FC<Props> = ({ isOpen, onClose }) => {
   return (
     <Modal
       footer={
-        <>
+        <div className="flex w-full flex-col-reverse justify-end gap-2 sm:flex-row">
           <button
             id="modal-cancel-btn"
             type="button"
@@ -44,7 +44,7 @@ export const ImportModal: FC<Props> = ({ isOpen, onClose }) => {
           <button className="btn btn-primary" onClick={onImport}>
             Import
           </button>
-        </>
+        </div>
       }
       title="Import Calendar Data"
       isOpen={isOpen}

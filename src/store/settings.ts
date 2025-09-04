@@ -1,7 +1,7 @@
 import { persistentAtom } from "@nanostores/persistent";
 import type { Palette, Pattern } from "../style/colors";
 
-type Tab = "Months" | "Linear" | "Columns";
+export type Tab = "Months" | "Linear" | "Columns";
 export const Tabs: Tab[] = ["Months", "Linear", "Columns"];
 
 type Settings = {

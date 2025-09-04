@@ -19,7 +19,7 @@ export const YearSelector = () => {
         className="select select-ghost"
         onChange={onChange}
       >
-        <option disabled={true}>Select a year</option>
+        <option disabled>Select a year</option>
         {years.map((year) => (
           <option key={year} value={year}>
             {year}
