@@ -12,7 +12,11 @@ import { useSettings } from "./hooks/useSettings";
 import { onEditLabel } from "./store/command";
 
 export const App: FC = () => {
-  const { tab = "Months", year } = useSettings();
+  const { tab = "Months", year = new Date().getFullYear() } = useSettings();
+  console.log({
+    tab,
+    year,
+  });
   const { labelEditId } = useCommand();
   return (
     <div className="bg-base-200 flex flex-col gap-2">

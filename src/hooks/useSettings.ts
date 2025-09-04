@@ -1,7 +1,7 @@
 import { useStore } from "@nanostores/react";
-import { $settings } from "../store/settings";
+import { $settings, DEFAULTS } from "../store/settings";
 
 export const useSettings = () => {
   const settings = useStore($settings);
-  return settings;
+  return { ...DEFAULTS, ...settings };
 };
