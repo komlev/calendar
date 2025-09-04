@@ -20,7 +20,7 @@ export const Footer = () => (
       <a
         target="_blank"
         className="link focusable focusable-neutral"
-        href="https://github.com/komlev/checkquest"
+        href="https://github.com/komlev/calendar"
         title="Github link"
         aria-label="Github link"
       >
