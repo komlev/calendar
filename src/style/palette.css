@@ -1,0 +1,6 @@
+:root {
+  --winter-color: oklch(0.7449 0.1362 241.24 / 67%);
+  --autumn-color: oklch(0.7927 0.171 70.67 / 67%);
+  --summer-color: oklch(0.8794 0.2787 134.78 / 67%);
+  --spring-color: oklch(0.9522 0.1967 107.12 / 67%);
+}

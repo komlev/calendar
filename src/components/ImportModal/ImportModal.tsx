@@ -1,0 +1,68 @@
+import { useEffect, useState, type FC } from "react";
+import { addNotification } from "../../store/notifications";
+import { FormControl } from "../FormControl/FormControl";
+import { Modal } from "../Modal";
+import { importCalendar } from "../../store/calendar";
+
+type Props = {
+  isOpen: boolean;
+  onClose: () => void;
+};
+
+export const ImportModal: FC<Props> = ({ isOpen, onClose }) => {
+  const [value, setValue] = useState("");
+
+  useEffect(() => {
+    if (isOpen) {
+      setValue("");
+    }
+  }, [isOpen]);
+
+  const onImport = () => {
+    try {
+      importCalendar(value);
+      addNotification("Imported successfully");
+      onClose();
+    } catch (_err) {
+      addNotification("Import error. Corrupted string", "error");
+      return;
+    }
+  };
+
+  return (
+    <Modal
+      footer={
+        <>
+          <button
+            id="modal-cancel-btn"
+            type="button"
+            className="btn btn-outline w-full sm:w-auto"
+            onClick={onClose}
+          >
+            Cancel
+          </button>
+          <button className="btn btn-primary" onClick={onImport}>
+            Import
+          </button>
+        </>
+      }
+      title="Import Calendar Data"
+      isOpen={isOpen}
+      onClose={onClose}
+    >
+      <FormControl id="import-textarea" label="Calendar Data">
+        <textarea
+          id="import-textarea"
+          required
+          aria-required="true"
+          value={value}
+          onChange={(e) => {
+            setValue(e.target.value);
+          }}
+          placeholder="Export string"
+          className="textarea textarea-xs w-full"
+        ></textarea>
+      </FormControl>
+    </Modal>
+  );
+};
