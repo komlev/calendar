@@ -1,0 +1,23 @@
+.MonthItem {
+  background: linear-gradient(
+    180deg,
+    var(--month-color) 0%,
+    rgba(255, 255, 255, 0) 30%
+  );
+}
+
+.winter {
+  --month-color: var(--winter-color);
+}
+
+.spring {
+  --month-color: var(--spring-color);
+}
+
+.summer {
+  --month-color: var(--summer-color);
+}
+
+.autumn {
+  --month-color: var(--autumn-color);
+}

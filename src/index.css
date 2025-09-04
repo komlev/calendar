@@ -1,0 +1,46 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@plugin "daisyui" {
+  themes:
+    bumblebee --default,
+    coffee --prefersdark;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@import "./style/palette.css";
+
+body {
+  scrollbar-gutter: stable both-edges;
+  overflow-y: scroll;
+}
+
+.focusable:focus-visible,
+.focusable-neutral:focus-visible {
+  border-radius: 4px;
+  outline-width: 2px;
+  outline-style: solid;
+  outline-color: var(--color-base-content);
+}
+
+.focusable-neutral:focus-visible {
+  outline-color: var(--color-neutral-content);
+}
+
+@media print {
+  button {
+    display: flex;
+  }
+}
+
+.skip-to-content {
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  transform: translateY(-150%);
+  transition: transform 150ms ease-in;
+}
+
+.skip-to-content:focus {
+  transform: translateY(0);
+}
