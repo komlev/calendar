@@ -24,7 +24,7 @@ export const Notification: FC<Props> = ({ notification }) => {
       role="alert"
       aria-live="polite"
       className={clsx("alert flex justify-between", {
-        ["alert-success"]: notification.type === "success",
+        ["alert-success"]: notification.type !== "success",
         ["alert-error"]: notification.type === "error",
       })}
     >
