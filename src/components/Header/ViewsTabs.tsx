@@ -10,7 +10,6 @@ type Props = {
 
 export const ViewsTabs: FC<Props> = ({ tab, onTabChange }) => {
   const onSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    console.log(event.target.value);
     onTabChange(event.target.value as Tab);
   };
 
@@ -31,12 +30,7 @@ export const ViewsTabs: FC<Props> = ({ tab, onTabChange }) => {
         ))}
       </div>
       <div className="md:hidden">
-        <select
-          value={tab}
-          defaultValue={Tabs[0]}
-          className="select select-ghost"
-          onChange={onSelect}
-        >
+        <select value={tab} className="select select-ghost" onChange={onSelect}>
           <option disabled>Select a view</option>
           {Tabs.map((t) => (
             <option key={t} value={t}>

@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { useSettings } from "../../hooks/useSettings";
 import { onColorPick, onPatternPick } from "../../store/settings";
 import type {
@@ -7,7 +8,7 @@ import type {
 import { colors, patterns } from "../../style/colors";
 import { PaletteBtn } from "./PaletteBtn";
 
-export const Palette = () => {
+export const Palette = memo(() => {
   const { color, pattern } = useSettings();
   const allPatterns = ["solid", ...Object.keys(patterns)];
 
@@ -65,4 +66,6 @@ export const Palette = () => {
       </div>
     </div>
   );
-};
+});
+
+Palette.displayName = "Palette";

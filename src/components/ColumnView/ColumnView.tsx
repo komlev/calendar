@@ -4,6 +4,7 @@ import { MONTHS_NAMES } from "../../utils/date";
 import { CalendarCell } from "../CalendarCell/CalendarCell";
 import { useColumn } from "./useColumn";
 import { useCalendar } from "../../hooks/useCalendar";
+import { padString } from "../../utils/string";
 
 type Props = {
   year: number;
@@ -22,9 +23,9 @@ export const ColumnView: FC<Props> = ({ year }) => {
             {MONTHS_NAMES.map((name, index) => (
               <th
                 key={`${name}_${index}`}
-                className="p-1 text-center text-sm font-bold text-red-600"
+                className="p-1 text-center text-sm font-bold whitespace-nowrap text-red-600"
               >
-                {name}
+                {padString(name, 10, " ")}
               </th>
             ))}
           </tr>
@@ -42,7 +43,7 @@ export const ColumnView: FC<Props> = ({ year }) => {
                       date={date}
                       isSelected={id === command.selected}
                       event={calendar?.[id!]}
-                      className="h-8"
+                      className="h-10"
                     />
                   );
                 })}

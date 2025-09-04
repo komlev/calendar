@@ -2,13 +2,15 @@ import clsx from "clsx";
 import { isToday as getIsToday, isWeekend as getIsWeekend } from "date-fns";
 import {
   memo,
+  useRef,
   type DetailedHTMLProps,
   type FC,
   type KeyboardEvent,
   type MouseEventHandler,
   type TdHTMLAttributes,
+  type TouchEvent,
 } from "react";
-import type { Event } from "../../store/calendar";
+import { type Event } from "../../store/calendar";
 import {
   onCellDraw,
   onEditLabel,
@@ -17,6 +19,7 @@ import {
 } from "../../store/command";
 import { colors, type Palette, type Pattern } from "../../style/colors";
 import { getBackgroundProperty } from "../../utils/calendar";
+import { getIsMobile } from "../../utils/device";
 import { EditIcon } from "../icons/EditIcon";
 
 type Props = {
@@ -31,6 +34,8 @@ type Props = {
 
 export const CalendarCell: FC<Props> = memo(
   ({ id, date, isSelected, event, ...props }) => {
+    const longPress = useRef(0);
+
     if (!date) {
       return <td></td>;
     }
@@ -38,12 +43,35 @@ export const CalendarCell: FC<Props> = memo(
     const onMouseDown: MouseEventHandler = (e) => {
       if (e.button !== 2) {
         onStartDraw(id, e.shiftKey);
+        const onMouseUp = () => {
+          document?.removeEventListener("mouseup", onMouseUp);
+          clearInterval(longPress.current);
+          onEndDraw();
+        };
+
         document?.addEventListener("mouseup", onMouseUp);
       }
     };
 
-    const onMouseUp = () => {
-      onEndDraw();
+    const onTouchStart = (e: TouchEvent) => {
+      if (e.touches.length === 1) {
+        const onTouchEnd = () => {
+          document?.removeEventListener("touchend", onTouchEnd);
+          clearInterval(longPress.current);
+        };
+
+        document?.addEventListener("touchend", onTouchEnd);
+
+        if (
+          getIsMobile() &&
+          e.touches[0].clientX === e.changedTouches[0].clientX
+        ) {
+          clearInterval(longPress.current);
+          longPress.current = setTimeout(() => {
+            onEditLabel(id);
+          }, 1000);
+        }
+      }
     };
 
     const onMouseEnter = () => {
@@ -53,7 +81,6 @@ export const CalendarCell: FC<Props> = memo(
     const onKeyboardClick = (e: KeyboardEvent<HTMLButtonElement>) => {
       if ([" ", "enter"].includes(e.key?.toLowerCase())) {
         onStartDraw(id, e.shiftKey);
-        document?.addEventListener("mouseup", onMouseUp);
         onEndDraw();
 
         if (e?.key?.toLowerCase() === "enter") {
@@ -74,6 +101,7 @@ export const CalendarCell: FC<Props> = memo(
         {...props}
         role="gridcell"
         onMouseEnter={onMouseEnter}
+        onTouchStart={onTouchStart}
         className={clsx(
           props.className,
           "bg-base-100 relative text-xs font-medium",
@@ -88,12 +116,14 @@ export const CalendarCell: FC<Props> = memo(
           <span
             style={{ backgroundColor: event ? colors?.[color] : undefined }}
             onClick={() => {
-              onEditLabel(id);
+              if (!getIsMobile()) {
+                onEditLabel(id);
+              }
             }}
             className={clsx(
               "font-bold text-black",
               "absolute top-0.5 left-0.5 z-30 h-6 min-w-6 cursor-pointer rounded-sm p-0.5 whitespace-nowrap ring-amber-600 hover:opacity-100 hover:ring-2",
-              !label && "flex items-center justify-center opacity-0"
+              !label && "hidden items-center justify-center opacity-0 md:flex"
             )}
           >
             {!label && <EditIcon className="text-primary-content w-4" />}

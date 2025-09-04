@@ -68,7 +68,7 @@ export const LinearView: FC<Props> = ({ year }) => {
                           !!command.selected && id === command.selected
                         }
                         event={calendar?.[id!]}
-                        className="h-10"
+                        className="h-12"
                       />
                     </Fragment>
                   );

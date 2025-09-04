@@ -2,7 +2,7 @@ import { addDays } from "date-fns";
 import { map } from "nanostores";
 import { getEventId } from "../utils/calendar";
 import { getDay, getDayIdByDate } from "../utils/date";
-import { toggleEvent } from "./calendar";
+import { getCalendarCell, toggleEvent } from "./calendar";
 import { $settings, DEFAULTS } from "./settings";
 
 export type MODE = "draw";
@@ -54,5 +54,9 @@ export const onCellDraw = (id: string) => {
 };
 
 export const onEditLabel = (id?: string) => {
-  $command.setKey("labelEditId", id || "");
+  if (id && getCalendarCell(id)) {
+    $command.setKey("labelEditId", id || "");
+  } else {
+    $command.setKey("labelEditId", "");
+  }
 };

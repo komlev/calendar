@@ -52,6 +52,11 @@ export const LabelModel: FC<Props> = ({ id, onClose }) => {
           onChange={(e) => {
             setValue(e.target.value);
           }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              onSave();
+            }
+          }}
           value={value}
           required
           aria-required="true"
