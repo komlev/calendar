@@ -1,6 +1,6 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
 import tailwindcss from "@tailwindcss/vite";
+import react from "@vitejs/plugin-react-swc";
+import { defineConfig } from "vite";
 import { analyzer } from "vite-bundle-analyzer";
 
 // @ts-expect-error This is fine
@@ -11,11 +11,10 @@ export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
-    hasAnalyzer
-      ? analyzer({
-          analyzerMode: "static",
-          openAnalyzer: true,
-        })
-      : undefined,
+    analyzer({
+      analyzerMode: "static",
+      openAnalyzer: true,
+      enabled: hasAnalyzer,
+    }),
   ],
 });

@@ -24,6 +24,7 @@ export const Palette = memo(() => {
                 <li key={k}>
                   <PaletteBtn
                     aria-label={`${k} color`}
+                    title={`${k} color`}
                     backgroundColor={colors[k as PaletteKey]}
                     isSelected={isSelected}
                     onClick={() => {
@@ -48,6 +49,7 @@ export const Palette = memo(() => {
                   <PaletteBtn
                     isSelected={isSelected}
                     aria-label={`${k} pattern`}
+                    title={`${k} pattern`}
                     onClick={() => {
                       onPatternPick(k as OriginalPattern);
                     }}
