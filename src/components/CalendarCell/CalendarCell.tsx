@@ -102,6 +102,7 @@ export const CalendarCell: FC<Props> = memo(
         role="gridcell"
         onMouseEnter={onMouseEnter}
         onTouchStart={onTouchStart}
+        data-today={isToday ? "true" : undefined}
         className={clsx(
           props.className,
           "bg-base-100 relative text-xs font-medium",
@@ -114,7 +115,7 @@ export const CalendarCell: FC<Props> = memo(
       >
         {event && (
           <span
-            style={{ backgroundColor: event ? colors?.[color] : undefined }}
+            style={{ backgroundColor: label ? colors?.[color] : undefined }}
             onClick={() => {
               if (!getIsMobile()) {
                 onEditLabel(id);
@@ -123,10 +124,11 @@ export const CalendarCell: FC<Props> = memo(
             className={clsx(
               "font-bold text-black",
               "absolute top-0.5 left-0.5 z-30 h-6 min-w-6 cursor-pointer rounded-sm p-0.5 whitespace-nowrap ring-amber-600 hover:opacity-100 hover:ring-2",
-              !label && "hidden items-center justify-center opacity-0 md:flex"
+              !label &&
+                "dark:bg-base-100 hidden items-center justify-center bg-white opacity-0 md:flex"
             )}
           >
-            {!label && <EditIcon className="text-primary-content w-4" />}
+            {!label && <EditIcon className="text-base-content w-4" />}
             {label}
           </span>
         )}

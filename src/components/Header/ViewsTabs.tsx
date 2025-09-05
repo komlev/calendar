@@ -30,7 +30,12 @@ export const ViewsTabs: FC<Props> = ({ tab, onTabChange }) => {
         ))}
       </div>
       <div className="md:hidden">
-        <select value={tab} className="select select-ghost" onChange={onSelect}>
+        <select
+          aria-label="View selector"
+          value={tab}
+          className="select select-ghost"
+          onChange={onSelect}
+        >
           <option disabled>Select a view</option>
           {Tabs.map((t) => (
             <option key={t} value={t}>

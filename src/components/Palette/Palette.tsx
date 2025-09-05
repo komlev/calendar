@@ -15,7 +15,7 @@ export const Palette = memo(() => {
   return (
     <div className="sticky top-4 z-40 flex justify-center print:hidden">
       <div className="bg-base-100/90 flex flex-col gap-2 rounded-md p-2 shadow-md md:flex-row md:gap-4">
-        <div className="flex flex-col items-start gap-1">
+        <div className="flex flex-col items-start gap-1 border-neutral-400 pr-4 md:border-r">
           <span className="text-base-content text-xs font-medium">Colors</span>
           <ul className="grid grid-flow-col grid-rows-2 gap-2">
             {Object.keys(colors)?.map((k) => {
@@ -36,7 +36,6 @@ export const Palette = memo(() => {
             })}
           </ul>
         </div>
-        <div className="border-l border-neutral-400" />
         <div className="flex flex-col items-start gap-1">
           <span className="text-base-content text-xs font-medium">
             Patterns
