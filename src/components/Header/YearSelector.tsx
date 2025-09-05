@@ -13,7 +13,12 @@ export const YearSelector = () => {
 
   return (
     <div>
-      <select value={year} className="select select-ghost" onChange={onChange}>
+      <select
+        aria-label="Year selector"
+        value={year}
+        className="select select-ghost"
+        onChange={onChange}
+      >
         <option disabled>Select a year</option>
         {years.map((year) => (
           <option key={year} value={year}>

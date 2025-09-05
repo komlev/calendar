@@ -31,6 +31,7 @@ export const ImportModal: FC<Props> = ({ isOpen, onClose }) => {
 
   return (
     <Modal
+      id="import"
       footer={
         <div className="flex w-full flex-col-reverse justify-end gap-2 sm:flex-row">
           <button

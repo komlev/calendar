@@ -27,6 +27,7 @@ export const LabelModel: FC<Props> = ({ id, onClose }) => {
 
   return (
     <Modal
+      id="label"
       footer={
         <div className="flex w-full flex-col-reverse justify-end gap-2 sm:flex-row">
           <button

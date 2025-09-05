@@ -3,6 +3,7 @@ import type { FC, ReactNode } from "react";
 import { useEffect, useRef } from "react";
 
 interface ModalProps {
+  id: string;
   isOpen: boolean;
   onClose: () => void;
   title: string;
@@ -12,6 +13,7 @@ interface ModalProps {
 }
 
 const Modal: FC<ModalProps> = ({
+  id,
   isOpen,
   onClose,
   title,
@@ -20,7 +22,7 @@ const Modal: FC<ModalProps> = ({
   className = "",
 }) => {
   const modalRef = useRef<HTMLDialogElement>(null);
-  const titleId = "modalTitle";
+  const titleId = `modalTitle-${id}`;
 
   useEffect(() => {
     const modalElement = modalRef.current;
@@ -48,6 +50,7 @@ const Modal: FC<ModalProps> = ({
       aria-modal="true"
       role="dialog"
       aria-hidden={!isOpen}
+      hidden={!isOpen}
     >
       <div className="modal-box">
         <form method="dialog">

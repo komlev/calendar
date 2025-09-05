@@ -29,6 +29,7 @@ const ConfirmModal: FC<ConfirmModalProps> = ({
 
   return (
     <Modal
+      id="confirm"
       isOpen={isOpen}
       onClose={onClose}
       title={title}

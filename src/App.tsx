@@ -17,14 +17,17 @@ export const App: FC = () => {
 
   return (
     <div className="bg-base-200 print:bg-base-100 flex flex-col gap-2">
+      <a href="#main" className="skip-to-content z-60">
+        Skip to main content
+      </a>
       <Header />
       <Notifications />
       <Palette />
-      <div className="p-1 print:p-0">
+      <main id="main" className="p-1 print:p-0">
         {tab === "Months" && <MonthsView year={year} />}
         {tab === "Linear" && <LinearView year={year} />}
         {tab === "Columns" && <ColumnView year={year} />}
-      </div>
+      </main>
       <LabelModel
         id={labelEditId}
         onClose={() => {

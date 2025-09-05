@@ -36,3 +36,15 @@ body {
     display: flex;
   }
 }
+
+.skip-to-content {
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  transform: translateY(-150%);
+  transition: transform 150ms ease-in;
+}
+
+.skip-to-content:focus {
+  transform: translateY(0);
+}
