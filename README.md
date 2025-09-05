@@ -2,6 +2,8 @@
 
 YearPlanner. Application to plan your year with ease with whole year overview and several presentations of the year.
 
+Application is available at: https://calendar.komlev.me/
+
 ## Tech Stack
 
 - React - view
@@ -15,6 +17,13 @@ YearPlanner. Application to plan your year with ease with whole year overview an
 
 - Node.js (v20 or higher)
 - pnpm, npm or yarn
+
+### Install and run
+
+```
+pnpm install
+pnpm dev
+```
 
 ## Contributing
 
