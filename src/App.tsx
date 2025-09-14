@@ -10,6 +10,7 @@ import { Palette } from "./components/Palette/Palette";
 import { useCommand } from "./hooks/useCommand";
 import { useSettings } from "./hooks/useSettings";
 import { onEditLabel } from "./store/command";
+import { HelpModal } from "./components/HelpModal/HelpModa";
 
 export const App: FC = () => {
   const { tab = "Months", year = new Date().getFullYear() } = useSettings();
@@ -34,6 +35,7 @@ export const App: FC = () => {
           onEditLabel();
         }}
       />
+      <HelpModal />
       <Footer />
     </div>
   );
