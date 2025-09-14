@@ -51,7 +51,7 @@ export const ImportModal: FC<Props> = ({ isOpen, onClose }) => {
       isOpen={isOpen}
       onClose={onClose}
     >
-      <FormControl id="import-textarea" label="Calendar Data">
+      <FormControl id="import-textarea" label="Paste exported data">
         <textarea
           id="import-textarea"
           required

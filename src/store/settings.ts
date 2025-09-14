@@ -9,6 +9,7 @@ type Settings = {
   pattern: Pattern;
   tab: Tab;
   year: number;
+  help: boolean;
 };
 
 export const DEFAULTS: Settings = {
@@ -16,6 +17,7 @@ export const DEFAULTS: Settings = {
   pattern: "solid",
   tab: Tabs[0],
   year: new Date().getFullYear(),
+  help: true,
 };
 
 export const $settings = persistentAtom<Settings>("settings", DEFAULTS, {
@@ -41,4 +43,9 @@ export const onTabChange = (tab: Tab) => {
 export const onYearChange = (year: number) => {
   const value = $settings.get();
   $settings.set({ ...value, year });
+};
+
+export const onHelp = (value: boolean) => {
+  const current = $settings.get();
+  $settings.set({ ...current, help: value });
 };
