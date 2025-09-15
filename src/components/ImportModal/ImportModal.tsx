@@ -1,4 +1,4 @@
-import { useEffect, useState, type FC } from "react";
+import { useEffect, useState, type FC, Suspense } from "react";
 import { addNotification } from "../../store/notifications";
 import { FormControl } from "../FormControl/FormControl";
 import { Modal } from "../Modal";
@@ -30,40 +30,42 @@ export const ImportModal: FC<Props> = ({ isOpen, onClose }) => {
   };
 
   return (
-    <Modal
-      id="import"
-      footer={
-        <div className="flex w-full flex-col-reverse justify-end gap-2 sm:flex-row">
-          <button
-            id="modal-cancel-btn"
-            type="button"
-            className="btn btn-outline w-full sm:w-auto"
-            onClick={onClose}
-          >
-            Cancel
-          </button>
-          <button className="btn btn-primary" onClick={onImport}>
-            Import
-          </button>
-        </div>
-      }
-      title="Import Calendar Data"
-      isOpen={isOpen}
-      onClose={onClose}
-    >
-      <FormControl id="import-textarea" label="Paste exported data">
-        <textarea
-          id="import-textarea"
-          required
-          aria-required="true"
-          value={value}
-          onChange={(e) => {
-            setValue(e.target.value);
-          }}
-          placeholder="Export string"
-          className="textarea textarea-xs w-full"
-        ></textarea>
-      </FormControl>
-    </Modal>
+    <Suspense fallback={null}>
+      <Modal
+        id="import"
+        footer={
+          <div className="flex w-full flex-col-reverse justify-end gap-2 sm:flex-row">
+            <button
+              id="modal-cancel-btn"
+              type="button"
+              className="btn btn-outline w-full sm:w-auto"
+              onClick={onClose}
+            >
+              Cancel
+            </button>
+            <button className="btn btn-primary" onClick={onImport}>
+              Import
+            </button>
+          </div>
+        }
+        title="Import Calendar Data"
+        isOpen={isOpen}
+        onClose={onClose}
+      >
+        <FormControl id="import-textarea" label="Paste exported data">
+          <textarea
+            id="import-textarea"
+            required
+            aria-required="true"
+            value={value}
+            onChange={(e) => {
+              setValue(e.target.value);
+            }}
+            placeholder="Export string"
+            className="textarea textarea-xs w-full"
+          ></textarea>
+        </FormControl>
+      </Modal>
+    </Suspense>
   );
 };

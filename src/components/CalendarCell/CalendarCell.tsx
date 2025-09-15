@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { isToday as getIsToday, isWeekend as getIsWeekend } from "date-fns";
+import { isToday as getIsToday, isWeekend as getIsWeekend, format } from "date-fns";
 import {
   memo,
   useRef,
@@ -34,7 +34,7 @@ type Props = {
 
 export const CalendarCell: FC<Props> = memo(
   ({ id, date, isSelected, event, ...props }) => {
-    const longPress = useRef(0);
+    const longPress = useRef<number | undefined>(undefined);
 
     if (!date) {
       return <td></td>;
@@ -45,7 +45,9 @@ export const CalendarCell: FC<Props> = memo(
         onStartDraw(id, e.shiftKey);
         const onMouseUp = () => {
           document?.removeEventListener("mouseup", onMouseUp);
-          clearInterval(longPress.current);
+          if (longPress.current !== undefined) {
+            clearTimeout(longPress.current);
+          }
           onEndDraw();
         };
 
@@ -57,7 +59,9 @@ export const CalendarCell: FC<Props> = memo(
       if (e.touches.length === 1) {
         const onTouchEnd = () => {
           document?.removeEventListener("touchend", onTouchEnd);
-          clearInterval(longPress.current);
+          if (longPress.current !== undefined) {
+            clearTimeout(longPress.current);
+          }
         };
 
         document?.addEventListener("touchend", onTouchEnd);
@@ -66,9 +70,12 @@ export const CalendarCell: FC<Props> = memo(
           getIsMobile() &&
           e.touches[0].clientX === e.changedTouches[0].clientX
         ) {
-          clearInterval(longPress.current);
-          longPress.current = setTimeout(() => {
-            onEditLabel(id);
+          if (longPress.current !== undefined) {
+            clearTimeout(longPress.current);
+          }
+          // Use window.setTimeout to ensure number type in browsers
+          longPress.current = window.setTimeout(() => {
+            onEditLabel(id, !event);
           }, 600);
         }
       }
@@ -100,6 +107,7 @@ export const CalendarCell: FC<Props> = memo(
       <td
         {...props}
         role="gridcell"
+        aria-selected={isSelected ? true : undefined}
         onMouseEnter={onMouseEnter}
         onTouchStart={onTouchStart}
         data-today={isToday ? "true" : undefined}
@@ -136,6 +144,7 @@ export const CalendarCell: FC<Props> = memo(
           className="relative z-2 flex h-full w-full cursor-pointer items-end justify-end pr-0.5 pb-0.5"
           onMouseDown={onMouseDown}
           onKeyDown={onKeyboardClick}
+          aria-label={`${format(date, "EEEE, MMMM d, yyyy")}${label ? ": " + label : ""}`}
         >
           <span
             className={clsx(

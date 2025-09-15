@@ -53,7 +53,11 @@ export const onCellDraw = (id: string) => {
   }
 };
 
-export const onEditLabel = (id?: string) => {
+export const onEditLabel = (id?: string, forceSelect = false) => {
+  if (forceSelect && id) {
+    const { color, pattern } = $settings.get();
+    toggleEvent(getEventId(color, pattern), id);
+  }
   if (id && getCalendarCell(id)) {
     $command.setKey("labelEditId", id || "");
   } else {

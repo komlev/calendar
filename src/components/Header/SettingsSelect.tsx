@@ -5,6 +5,7 @@ import {
   type DetailedHTMLProps,
   type FC,
   type HTMLAttributes,
+  Suspense,
 } from "react";
 import { createPortal } from "react-dom";
 import { clearCalendar, exportCalendar } from "../../store/calendar";
@@ -109,24 +110,28 @@ export const SettingsSelect: FC<Props> = (props) => {
         </li>
       </ul>
       {createPortal(
-        <ConfirmModal
-          isOpen={isConfirmOpen}
-          onClose={onConfirmClose}
-          onConfirm={onConfirm}
-          title={title}
-          message={message}
-          confirmText={confirmText}
-          cancelText={cancelText}
-        />,
+        <Suspense fallback={null}>
+          <ConfirmModal
+            isOpen={isConfirmOpen}
+            onClose={onConfirmClose}
+            onConfirm={onConfirm}
+            title={title}
+            message={message}
+            confirmText={confirmText}
+            cancelText={cancelText}
+          />
+        </Suspense>,
         document.body
       )}
       {createPortal(
-        <ImportModal
-          isOpen={isImportModalOpen}
-          onClose={() => {
-            setIsImportModalOpen(false);
-          }}
-        />,
+        <Suspense fallback={null}>
+          <ImportModal
+            isOpen={isImportModalOpen}
+            onClose={() => {
+              setIsImportModalOpen(false);
+            }}
+          />
+        </Suspense>,
         document.body
       )}
     </>

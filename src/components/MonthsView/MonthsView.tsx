@@ -2,6 +2,8 @@ import clsx from "clsx";
 import type { DetailedHTMLProps, FC } from "react";
 import { MonthsItem } from "./MonthItem";
 
+const MONTH_INDEXES = Array.from({ length: 12 }, (_, i) => i);
+
 type Props = { year: number } & DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
   HTMLDivElement
@@ -16,7 +18,7 @@ export const MonthsView: FC<Props> = ({ year, ...props }) => {
         props.className
       )}
     >
-      {new Array(12).fill(0).map((_, index) => (
+      {MONTH_INDEXES.map((index) => (
         <MonthsItem key={index} month={index} year={year} />
       ))}
     </div>

@@ -19,7 +19,7 @@ export const LinearView: FC<Props> = ({ year }) => {
   let shown = -1;
   return (
     <div className="flex">
-      <table role="grid" className="w-full">
+      <table role="grid" aria-label="Linear calendar grid" className="w-full">
         <thead>
           <tr>
             <th></th>
