@@ -4,7 +4,7 @@ import type { Tab } from "../../store/settings";
 import { Tabs } from "../../store/settings";
 
 type Props = {
-  tab: string;
+  tab: Tab;
   onTabChange: (tab: Tab) => void;
 };
 
