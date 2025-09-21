@@ -1,5 +1,9 @@
 import clsx from "clsx";
-import { isToday as getIsToday, isWeekend as getIsWeekend, format } from "date-fns";
+import {
+  isToday as getIsToday,
+  isWeekend as getIsWeekend,
+  format,
+} from "date-fns";
 import {
   memo,
   useRef,
@@ -74,8 +78,12 @@ export const CalendarCell: FC<Props> = memo(
             clearTimeout(longPress.current);
           }
           // Use window.setTimeout to ensure number type in browsers
+          const scrollYStart = window.scrollY;
           longPress.current = window.setTimeout(() => {
-            onEditLabel(id, !event);
+            // detect drift: if the user has moved their finger too far
+            if (Math.abs(scrollYStart - window.scrollY) < 20) {
+              onEditLabel(id, !event);
+            }
           }, 600);
         }
       }
