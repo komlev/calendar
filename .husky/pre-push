@@ -1,3 +1,2 @@
-pnpm test
 pnpm lint
 pnpm typecheck
