@@ -1,6 +1,6 @@
 {
   "name": "calendar",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": {
     "name": "Valeriy Komlev",
     "email": "komlev88@gmail.com",
@@ -12,7 +12,9 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "prettier": "prettier .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepare": "husky",
+    "cm": "cz commit"
   },
   "dependencies": {
     "@nanostores/persistent": "^1.1.0",
@@ -38,6 +40,8 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.6",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.14",
     "tailwindcss": "^4.1.12",
@@ -45,5 +49,10 @@
     "typescript-eslint": "^8.39.1",
     "vite": "^7.1.2",
     "vite-bundle-analyzer": "^1.2.3"
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && npx cz --hook || true"
+    }
   }
 }
