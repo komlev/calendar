@@ -6,11 +6,16 @@
     "email": "komlev88@gmail.com",
     "url": "https://komlev.me/"
   },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
+    "typecheck": "tsc -b --noEmit",
     "prettier": "prettier .",
     "preview": "vite preview",
     "prepare": "husky",

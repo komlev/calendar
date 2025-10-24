@@ -1,4 +1,4 @@
 {
-  "src/*.{ts,tsx}": ["eslint --fix --no-warn-ignored"],
-  "src/*.{ts,tsx,json}": ["prettier --write"]
+  "src/**/*.{ts,tsx}": ["eslint --fix --no-warn-ignored"],
+  "src/**/*.{ts,tsx,json}": ["prettier --write"]
 }
