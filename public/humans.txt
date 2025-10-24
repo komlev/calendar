@@ -1,0 +1,15 @@
+   dMP dMP dMMMMMP .aMMMb  dMMMMb  dMMMMb  dMP     .aMMMb  dMMMMb  dMMMMb  dMMMMMP dMMMMb
+  dMP.dMP dMP     dMP"dMP dMP.dMP dMP.dMP dMP     dMP"dMP dMP dMP dMP dMP dMP     dMP.dMP
+  VMMMMP dMMMP   dMMMMMP dMMMMK" dMMMMP" dMP     dMMMMMP dMP dMP dMP dMP dMMMP   dMMMMK"
+dA .dMP dMP     dMP dMP dMP"AMF dMP     dMP     dMP dMP dMP dMP dMP dMP dMP     dMP"AMF
+VMMMP" dMMMMMP dMP dMP dMP dMP dMP     dMMMMMP dMP dMP dMP dMP dMP dMP dMMMMMP dMP dMP
+
+---
+
+/* TEAM */
+Developer: Valeriy Komlev
+Contact: komlev88@gmail.com
+Site: https://komlev.me/
+
+/* SOFTWARE */
+You can learn more by visiting - https://github.com/komlev/calendar
