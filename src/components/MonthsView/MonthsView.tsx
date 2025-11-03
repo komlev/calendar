@@ -15,7 +15,7 @@ export const MonthsView: FC<Props> = ({ year, ...props }) => {
       {...props}
       className={clsx(
         "flex flex-wrap justify-center gap-4 print:gap-2",
-        props.className
+        props.className,
       )}
     >
       {MONTH_INDEXES.map((index) => (

@@ -1,10 +1,10 @@
 import clsx from "clsx";
-import { Fragment, type FC } from "react";
+import { type FC, Fragment } from "react";
+import { useCalendar } from "../../hooks/useCalendar";
 import { useCommand } from "../../hooks/useCommand";
 import { DAYS_NAMES, MONTHS_NAMES } from "../../utils/date";
 import { CalendarCell } from "../CalendarCell/CalendarCell";
 import { useLinear } from "./useLinear";
-import { useCalendar } from "../../hooks/useCalendar";
 
 type Props = {
   year: number;
@@ -19,7 +19,7 @@ export const LinearView: FC<Props> = ({ year }) => {
   let shown = -1;
   return (
     <div className="flex">
-      <table role="grid" aria-label="Linear calendar grid" className="w-full">
+      <table aria-label="Linear calendar grid" className="w-full">
         <thead>
           <tr>
             <th></th>
@@ -55,7 +55,7 @@ export const LinearView: FC<Props> = ({ year }) => {
                         <td
                           className={clsx(
                             "border-x border-gray-200 p-1 text-center text-sm font-bold text-red-600",
-                            showMonth && "border-t"
+                            showMonth && "border-t",
                           )}
                         >
                           {showMonth ? MONTHS_NAMES[m] : ""}

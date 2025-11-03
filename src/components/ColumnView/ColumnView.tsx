@@ -16,7 +16,7 @@ export const ColumnView: FC<Props> = ({ year }) => {
 
   return (
     <div className="flex overflow-x-auto">
-      <table role="grid" aria-label="Columns calendar grid" className="w-full">
+      <table aria-label="Columns calendar grid" className="w-full">
         <thead>
           <tr>
             {SHORT_MONTHS_NAMES.map((name, index) => (

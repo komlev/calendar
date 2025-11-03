@@ -34,7 +34,7 @@ const baseColors = (Object.keys(tailwindColors) as BasePalette[]).reduce(
     }
     return acc;
   },
-  {} as Record<BasePalette, string>
+  {} as Record<BasePalette, string>,
 );
 
 export const colors = {

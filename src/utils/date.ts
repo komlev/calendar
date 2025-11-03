@@ -1,11 +1,11 @@
 import {
   format,
+  setDate,
+  setMonth,
+  setYear,
+  startOfDay,
   startOfMonth,
   startOfWeek,
-  startOfDay,
-  setYear,
-  setMonth,
-  setDate,
 } from "date-fns";
 
 export const DAYS_NAMES = Array.from({ length: 7 }, (_, i) => {

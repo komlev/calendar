@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 @plugin "daisyui" {
+  /*biome-ignore lint/correctness/noUnknownProperty: daisyui syntax*/
   themes:
     bumblebee --default,
     coffee --prefersdark;
@@ -8,6 +9,7 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/*biome-ignore lint/correctness/noInvalidPositionAtImportRule: we need to setup 3rd party first*/
 @import "./style/palette.css";
 
 body {

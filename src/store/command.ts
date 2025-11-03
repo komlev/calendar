@@ -28,8 +28,10 @@ export const onStartDraw = (id: string, isRange: boolean) => {
   $command.setKey("selected", id);
 
   if (isRange && selected) {
-    const [day1, month1, year1] = selected.split(".").map((i) => parseInt(i));
-    const [day2, month2, year2] = id.split(".").map((i) => parseInt(i));
+    const [day1, month1, year1] = selected
+      .split(".")
+      .map((i) => parseInt(i, 10));
+    const [day2, month2, year2] = id.split(".").map((i) => parseInt(i, 10));
     const [startDate, endDate] = [
       getDay(day1, month1, year1),
       getDay(day2, month2, year2),

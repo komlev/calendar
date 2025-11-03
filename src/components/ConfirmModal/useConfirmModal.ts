@@ -46,7 +46,7 @@ export const useConfirmModal = (): UseConfirmModalReturn => {
       setCancelText(cancelText);
       setIsOpen(true);
     },
-    []
+    [],
   );
 
   const onClose = useCallback(() => {

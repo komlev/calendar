@@ -1,3 +1,9 @@
+## 1.2.1 (2025-11-03)
+
+### Fix
+
+- replace eslint/prettier with biome, add commitlint, replace husky/lint-staged with lefthook
+
 ## 1.2.0 (2025-10-24)
 
 ### Feat

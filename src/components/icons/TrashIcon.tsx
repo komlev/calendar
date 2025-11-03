@@ -7,6 +7,7 @@ export const TrashIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
     viewBox="0 0 24 24"
     stroke-width="1.5"
     stroke="currentColor"
+    role="presentation"
     {...props}
   >
     <path

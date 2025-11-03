@@ -25,7 +25,7 @@ export const useMonth = (month: number, year: number) => {
   const rows = useMemo(() => {
     const rows: Rows = [];
     let day = 1;
-    if (startDay != 1) {
+    if (startDay !== 1) {
       const firstRow = [];
       for (let i = 0; i < 7; i++) {
         if (i < startDay - 1) {

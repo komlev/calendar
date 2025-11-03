@@ -1,25 +1,25 @@
 {
   "name": "calendar",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": {
     "name": "Valeriy Komlev",
     "email": "komlev88@gmail.com",
     "url": "https://komlev.me/"
   },
+  "packageManager": "pnpm@10.20.0",
   "engines": {
-    "node": ">=20.0.0",
-    "pnpm": ">=9.0.0"
+    "node": ">=24.10.0",
+    "pnpm": ">=10.20.0"
   },
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "lint": "biome check",
+    "format": "biome check --fix",
+    "lint-commit": "commitlint --from HEAD~1 --to HEAD",
     "typecheck": "tsc -b --noEmit",
-    "prettier": "prettier .",
-    "preview": "vite preview",
-    "prepare": "husky",
-    "cm": "cz commit"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@nanostores/persistent": "^1.1.0",
@@ -34,30 +34,19 @@
     "theme-change": "^2.5.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.33.0",
+    "@biomejs/biome": "2.3.2",
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
     "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/vite": "^4.1.12",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
     "@vitejs/plugin-react-swc": "^4.0.0",
     "daisyui": "^5.1.5",
-    "eslint": "^9.33.0",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
-    "husky": "^9.1.7",
-    "lint-staged": "^16.2.6",
-    "prettier": "^3.6.2",
-    "prettier-plugin-tailwindcss": "^0.6.14",
     "tailwindcss": "^4.1.12",
     "typescript": "~5.8.3",
-    "typescript-eslint": "^8.39.1",
     "vite": "^7.1.2",
     "vite-bundle-analyzer": "^1.2.3"
-  },
-  "husky": {
-    "hooks": {
-      "prepare-commit-msg": "exec < /dev/tty && npx cz --hook || true"
-    }
   }
 }

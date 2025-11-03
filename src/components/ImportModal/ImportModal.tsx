@@ -1,8 +1,8 @@
-import { useEffect, useState, type FC, Suspense } from "react";
+import { type FC, Suspense, useEffect, useState } from "react";
+import { importCalendar } from "../../store/calendar";
 import { addNotification } from "../../store/notifications";
 import { FormControl } from "../FormControl/FormControl";
 import { Modal } from "../Modal";
-import { importCalendar } from "../../store/calendar";
 
 type Props = {
   isOpen: boolean;
@@ -43,7 +43,11 @@ export const ImportModal: FC<Props> = ({ isOpen, onClose }) => {
             >
               Cancel
             </button>
-            <button className="btn btn-primary" onClick={onImport}>
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={onImport}
+            >
               Import
             </button>
           </div>

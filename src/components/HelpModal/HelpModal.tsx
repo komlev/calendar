@@ -1,7 +1,7 @@
+import { Suspense } from "react";
 import { useSettings } from "../../hooks/useSettings";
 import { onHelp } from "../../store/settings";
 import { Modal } from "../Modal";
-import { Suspense } from "react";
 
 export const HelpModal = () => {
   const { help } = useSettings();

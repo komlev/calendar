@@ -2,10 +2,7 @@ import { GithubIcon } from "../icons/GithubIcon";
 import { ThemeSwitcher } from "../ThemeSwitcher/ThemeSwitcher";
 
 export const Footer = () => (
-  <footer
-    className="footer footer-center bg-neutral z-10 py-4 print:hidden"
-    role="contentinfo"
-  >
+  <footer className="footer footer-center bg-neutral z-10 py-4 print:hidden">
     <div className="text-neutral-content flex font-medium">
       YearPlanner by{" "}
       <a
@@ -23,6 +20,7 @@ export const Footer = () => (
         href="https://github.com/komlev/calendar"
         title="Github link"
         aria-label="Github link"
+        rel="noopener"
       >
         <GithubIcon />
       </a>

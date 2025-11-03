@@ -1,4 +1,4 @@
-import { colors, patterns, type Palette, type Pattern } from "../style/colors";
+import { colors, type Palette, type Pattern, patterns } from "../style/colors";
 
 export const getEventId = (color: Palette, pattern: Pattern) =>
   `${color}.${pattern}`;

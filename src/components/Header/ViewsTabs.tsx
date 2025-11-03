@@ -16,9 +16,10 @@ export const ViewsTabs: FC<Props> = ({ tab, onTabChange }) => {
   return (
     <>
       <div role="tablist" className="tabs tabs-border hidden md:block">
-        {Tabs.map((t, index) => (
+        {Tabs.map((t) => (
           <button
-            key={index}
+            type="button"
+            key={t}
             role="tab"
             className={clsx("tab", tab === t && "tab-active")}
             onClick={() => {
