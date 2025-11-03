@@ -6,9 +6,10 @@
     "email": "komlev88@gmail.com",
     "url": "https://komlev.me/"
   },
+  "packageManager": "pnpm@10.20.0",
   "engines": {
-    "node": ">=20.0.0",
-    "pnpm": ">=9.0.0"
+    "node": ">=24.10.0",
+    "pnpm": ">=10.20.0"
   },
   "type": "module",
   "scripts": {
