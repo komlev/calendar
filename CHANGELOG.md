@@ -1,3 +1,10 @@
+## 1.2.2 (2025-11-03)
+
+### Fix
+
+- upgrade packages
+- lint/format revamp, pre-commit hooks
+
 ## 1.2.1 (2025-11-03)
 
 ### Fix
