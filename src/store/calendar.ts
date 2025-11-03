@@ -15,7 +15,7 @@ type Calendar = {
 export const $calendar = persistentAtom<Calendar>(
   "calendar",
   {},
-  { encode: JSON.stringify, decode: JSON.parse }
+  { encode: JSON.stringify, decode: JSON.parse },
 );
 
 const shouldOmit = (value: Event) => !value || isEmpty(value);

@@ -1,6 +1,6 @@
 import { useStore } from "@nanostores/react";
-import { Notification } from "./Notification";
 import { $notifications } from "../../store/notifications";
+import { Notification } from "./Notification";
 
 export const Notifications = () => {
   const list = useStore($notifications);

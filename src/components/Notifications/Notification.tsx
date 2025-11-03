@@ -24,12 +24,13 @@ export const Notification: FC<Props> = ({ notification }) => {
       role="alert"
       aria-live="polite"
       className={clsx("alert flex justify-between", {
-        ["alert-success"]: notification.type !== "error",
-        ["alert-error"]: notification.type === "error",
+        "alert-success": notification.type !== "error",
+        "alert-error": notification.type === "error",
       })}
     >
       <span>{notification.content}</span>
       <button
+        type="button"
         title="Close notification"
         aria-label="Close notification"
         className="btn btn-xs btn-ghost"

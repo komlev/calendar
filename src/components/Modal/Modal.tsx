@@ -48,7 +48,6 @@ const Modal: FC<ModalProps> = ({
       className={clsx("modal", className)}
       aria-labelledby={titleId}
       aria-modal="true"
-      role="dialog"
       aria-hidden={!isOpen}
       hidden={!isOpen}
     >

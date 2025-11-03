@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { memo, type DetailedHTMLProps, type FC } from "react";
+import { type DetailedHTMLProps, type FC, memo } from "react";
 import { useCalendar } from "../../hooks/useCalendar";
 import { useCommand } from "../../hooks/useCommand";
 import { DAYS_NAMES } from "../../utils/date";
@@ -24,13 +24,13 @@ export const MonthsItem: FC<Props> = memo(({ month, year, ...props }) => {
         "print:border print:p-2 print:shadow-none",
         // style.MonthItem,
         // style[getMonthType(month)],
-        props.className
+        props.className,
       )}
     >
       <div className="border-b border-neutral-400 px-1 text-end text-sm font-bold text-red-500">
         {monthName}
       </div>
-      <table role="grid">
+      <table>
         <thead>
           <tr>
             {DAYS_NAMES.map((name, index) => (
@@ -38,7 +38,7 @@ export const MonthsItem: FC<Props> = memo(({ month, year, ...props }) => {
                 key={`${name}_${index}`}
                 className={clsx(
                   "aspect-square p-1 text-center text-sm font-bold",
-                  index >= 5 && "text-neutral-500"
+                  index >= 5 && "text-neutral-500",
                 )}
               >
                 {name}

@@ -1,4 +1,4 @@
-import { useEffect, useState, type FC, Suspense } from "react";
+import { type FC, Suspense, useEffect, useState } from "react";
 import { getCalendarCell, labelEvent } from "../../store/calendar";
 import { FormControl } from "../FormControl/FormControl";
 import { Modal } from "../Modal";
@@ -39,7 +39,7 @@ export const LabelModel: FC<Props> = ({ id, onClose }) => {
             >
               Cancel
             </button>
-            <button className="btn btn-primary" onClick={onSave}>
+            <button type="button" className="btn btn-primary" onClick={onSave}>
               Set Label
             </button>
           </div>

@@ -4,7 +4,6 @@ import { defineConfig } from "vite";
 import { analyzer } from "vite-bundle-analyzer";
 import pack from "./package.json";
 
-// @ts-expect-error This is fine
 const hasAnalyzer = process.env.ANALYZE;
 
 const htmlPlugin = () => {
@@ -24,7 +23,7 @@ export default defineConfig({
     analyzer({
       analyzerMode: "static",
       openAnalyzer: true,
-      enabled: hasAnalyzer,
+      enabled: !!hasAnalyzer,
     }),
     htmlPlugin(),
   ],

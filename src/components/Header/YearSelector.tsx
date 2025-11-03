@@ -8,7 +8,7 @@ export const YearSelector = () => {
   const { year = currentYear } = useSettings();
 
   const onChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    onYearChange(parseInt(event.target.value));
+    onYearChange(parseInt(event.target.value, 10));
   };
 
   return (

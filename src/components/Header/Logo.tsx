@@ -10,6 +10,7 @@ export const Logo = () => {
       <span className="flex items-center text-purple-600">
         <span className="hidden text-amber-500 md:inline-block">Year</span>
         <button
+          type="button"
           className="focusable cursor-pointer"
           onClick={scrollToTodayClick}
         >

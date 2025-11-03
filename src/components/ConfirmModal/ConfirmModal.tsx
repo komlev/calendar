@@ -46,6 +46,7 @@ const ConfirmModal: FC<ConfirmModalProps> = ({
           </button>
           <button
             id="modal-confirm-btn"
+            type="button"
             aria-keyshortcuts={isOpen ? "enter" : undefined}
             className="btn btn-primary w-full sm:w-auto"
             onClick={onConfirmClick}
