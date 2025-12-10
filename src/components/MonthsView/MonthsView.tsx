@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import type { DetailedHTMLProps, FC } from "react";
+import type { DetailedHTMLProps, FC } from "preact/compat";
 import { MonthsItem } from "./MonthItem";
 
 const MONTH_INDEXES = Array.from({ length: 12 }, (_, i) => i);

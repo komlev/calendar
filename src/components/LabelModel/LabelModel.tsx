@@ -1,4 +1,6 @@
-import { type FC, Suspense, useEffect, useState } from "react";
+import type { FC } from "preact/compat";
+import { Suspense } from "preact/compat";
+import { useEffect, useState } from "preact/hooks";
 import { getCalendarCell, labelEvent } from "../../store/calendar";
 import { FormControl } from "../FormControl/FormControl";
 import { Modal } from "../Modal";
@@ -52,7 +54,7 @@ export const LabelModel: FC<Props> = ({ id, onClose }) => {
           <input
             id="label-input"
             onChange={(e) => {
-              setValue(e.target.value);
+              setValue((e.target as HTMLInputElement).value);
             }}
             onKeyDown={(e) => {
               if (e.key === "Enter") {

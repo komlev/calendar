@@ -6,7 +6,7 @@ import {
   setYear,
   startOfMonth,
 } from "date-fns";
-import { useMemo } from "react";
+import { useMemo } from "preact/hooks";
 import type { Rows } from "../../types/day";
 import { getDay as createDay, getDayId } from "../../utils/date";
 

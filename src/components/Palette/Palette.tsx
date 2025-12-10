@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo } from "preact/compat";
 import { useSettings } from "../../hooks/useSettings";
 import { onColorPick, onPatternPick } from "../../store/settings";
 import type {
@@ -70,5 +70,3 @@ export const Palette = memo(() => {
     </div>
   );
 });
-
-Palette.displayName = "Palette";

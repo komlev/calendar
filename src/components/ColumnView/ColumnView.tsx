@@ -1,4 +1,4 @@
-import type { FC } from "react";
+import type { FC } from "preact/compat";
 import { useCalendar } from "../../hooks/useCalendar";
 import { useCommand } from "../../hooks/useCommand";
 import { SHORT_MONTHS_NAMES } from "../../utils/date";

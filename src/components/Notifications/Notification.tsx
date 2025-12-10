@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import type { FC } from "react";
-import { useEffect } from "react";
+import type { FC } from "preact/compat";
+import { useEffect } from "preact/hooks";
 import type { Notification as NotificationType } from "../../store/notifications";
 import { removeNotification } from "../../store/notifications";
 

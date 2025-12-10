@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense } from "preact/compat";
 import { useSettings } from "../../hooks/useSettings";
 import { onHelp } from "../../store/settings";
 import { Modal } from "../Modal";

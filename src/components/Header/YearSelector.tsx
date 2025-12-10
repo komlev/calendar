@@ -7,8 +7,8 @@ const years = Array.from({ length: 4 }, (_, i) => currentYear - 1 + i);
 export const YearSelector = () => {
   const { year = currentYear } = useSettings();
 
-  const onChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    onYearChange(parseInt(event.target.value, 10));
+  const onChange = (event: preact.JSX.TargetedEvent<HTMLSelectElement>) => {
+    onYearChange(parseInt((event.target as HTMLSelectElement).value, 10));
   };
 
   return (

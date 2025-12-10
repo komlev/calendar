@@ -1,5 +1,9 @@
 import clsx from "clsx";
-import type { ButtonHTMLAttributes, DetailedHTMLProps, FC } from "react";
+import type {
+  ButtonHTMLAttributes,
+  DetailedHTMLProps,
+  FC,
+} from "preact/compat";
 
 type Props = DetailedHTMLProps<
   ButtonHTMLAttributes<HTMLButtonElement>,

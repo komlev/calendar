@@ -1,4 +1,4 @@
-import type { FC } from "react";
+import type { FC } from "preact/compat";
 import { ColumnView } from "./components/ColumnView/ColumnView";
 import { Footer } from "./components/Footer/Footer";
 import { Header } from "./components/Header/Header";

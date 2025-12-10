@@ -1,4 +1,4 @@
-import { useStore } from "@nanostores/react";
+import { useStore } from "@nanostores/preact";
 import { $settings, DEFAULTS } from "../store/settings";
 
 export const useSettings = () => {
