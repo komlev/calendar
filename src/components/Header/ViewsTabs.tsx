@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import type { FC } from "react";
+import type { FC } from "preact/compat";
 import type { Tab } from "../../store/settings";
 import { Tabs } from "../../store/settings";
 
@@ -9,8 +9,8 @@ type Props = {
 };
 
 export const ViewsTabs: FC<Props> = ({ tab, onTabChange }) => {
-  const onSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    onTabChange(event.target.value as Tab);
+  const onSelect = (event: preact.JSX.TargetedEvent<HTMLSelectElement>) => {
+    onTabChange((event.target as HTMLSelectElement).value as Tab);
   };
 
   return (

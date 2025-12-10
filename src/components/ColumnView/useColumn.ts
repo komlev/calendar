@@ -1,5 +1,5 @@
 import { getDaysInMonth, setMonth, setYear } from "date-fns";
-import { useMemo } from "react";
+import { useMemo } from "preact/hooks";
 import type { Rows } from "../../types/day";
 import { getDay, getDayIdByDate } from "../../utils/date";
 

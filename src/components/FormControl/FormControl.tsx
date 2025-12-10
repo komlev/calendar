@@ -5,7 +5,7 @@ import {
   type FieldsetHTMLAttributes,
   memo,
   type ReactNode,
-} from "react";
+} from "preact/compat";
 
 type Props = DetailedHTMLProps<
   FieldsetHTMLAttributes<HTMLFieldSetElement>,

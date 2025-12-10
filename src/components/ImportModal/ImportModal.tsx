@@ -1,4 +1,6 @@
-import { type FC, Suspense, useEffect, useState } from "react";
+import type { FC } from "preact/compat";
+import { Suspense } from "preact/compat";
+import { useEffect, useState } from "preact/hooks";
 import { importCalendar } from "../../store/calendar";
 import { addNotification } from "../../store/notifications";
 import { FormControl } from "../FormControl/FormControl";
@@ -63,7 +65,7 @@ export const ImportModal: FC<Props> = ({ isOpen, onClose }) => {
             aria-required="true"
             value={value}
             onChange={(e) => {
-              setValue(e.target.value);
+              setValue((e.target as HTMLTextAreaElement).value);
             }}
             placeholder="Export string"
             className="textarea textarea-xs w-full"

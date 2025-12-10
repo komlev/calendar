@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { type FC, Fragment } from "react";
+import { type FC, Fragment } from "preact/compat";
 import { useCalendar } from "../../hooks/useCalendar";
 import { useCommand } from "../../hooks/useCommand";
 import { DAYS_NAMES, MONTHS_NAMES } from "../../utils/date";

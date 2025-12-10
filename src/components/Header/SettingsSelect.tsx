@@ -1,13 +1,7 @@
 import clsx from "clsx";
-import {
-  type DetailedHTMLProps,
-  type FC,
-  type HTMLAttributes,
-  Suspense,
-  useRef,
-  useState,
-} from "react";
-import { createPortal } from "react-dom";
+import type { DetailedHTMLProps, FC, HTMLAttributes } from "preact/compat";
+import { createPortal, Suspense } from "preact/compat";
+import { useRef, useState } from "preact/hooks";
 import { clearCalendar, exportCalendar } from "../../store/calendar";
 import { addNotification } from "../../store/notifications";
 import { onHelp } from "../../store/settings";

@@ -1,4 +1,4 @@
-import { useLayoutEffect } from "react";
+import { useLayoutEffect } from "preact/hooks";
 import { useTheme } from "./useTheme";
 
 export const ThemeSwitcher = () => {

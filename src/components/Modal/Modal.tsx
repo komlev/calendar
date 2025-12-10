@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import type { FC, ReactNode } from "react";
-import { useEffect, useRef } from "react";
+import type { FC, ReactNode } from "preact/compat";
+import { useEffect, useRef } from "preact/hooks";
 
 interface ModalProps {
   id: string;

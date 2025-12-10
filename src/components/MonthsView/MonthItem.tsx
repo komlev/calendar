@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { type DetailedHTMLProps, type FC, memo } from "react";
+import { type DetailedHTMLProps, type FC, memo } from "preact/compat";
 import { useCalendar } from "../../hooks/useCalendar";
 import { useCommand } from "../../hooks/useCommand";
 import { DAYS_NAMES } from "../../utils/date";

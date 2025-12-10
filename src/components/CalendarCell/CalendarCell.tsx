@@ -4,16 +4,16 @@ import {
   isToday as getIsToday,
   isWeekend as getIsWeekend,
 } from "date-fns";
-import {
-  type DetailedHTMLProps,
-  type FC,
-  type KeyboardEvent,
-  type MouseEventHandler,
-  memo,
-  type TdHTMLAttributes,
-  type TouchEvent,
-  useRef,
-} from "react";
+import type {
+  DetailedHTMLProps,
+  FC,
+  KeyboardEvent,
+  MouseEventHandler,
+  TdHTMLAttributes,
+  TouchEvent,
+} from "preact/compat";
+import { memo } from "preact/compat";
+import { useRef } from "preact/hooks";
 import type { Event } from "../../store/calendar";
 import {
   onCellDraw,
@@ -44,7 +44,7 @@ export const CalendarCell: FC<Props> = memo(
       return <td></td>;
     }
 
-    const onMouseDown: MouseEventHandler = (e) => {
+    const onMouseDown: MouseEventHandler<HTMLButtonElement> = (e) => {
       if (e.button !== 2) {
         onStartDraw(id, e.shiftKey);
         const onMouseUp = () => {
@@ -59,7 +59,7 @@ export const CalendarCell: FC<Props> = memo(
       }
     };
 
-    const onTouchStart = (e: TouchEvent) => {
+    const onTouchStart = (e: TouchEvent<HTMLTableCellElement>) => {
       if (e.touches.length === 1) {
         const onTouchEnd = () => {
           document?.removeEventListener("touchend", onTouchEnd);
