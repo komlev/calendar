@@ -1,15 +1,10 @@
-## 1.2.2 (2025-11-03)
+## 1.2.3 (2025-12-10)
 
 ### Fix
 
+- upgrading packages
 - upgrade packages
 - lint/format revamp, pre-commit hooks
-
-## 1.2.1 (2025-11-03)
-
-### Fix
-
-- replace eslint/prettier with biome, add commitlint, replace husky/lint-staged with lefthook
 
 ## 1.2.0 (2025-10-24)
 
