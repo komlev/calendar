@@ -4,11 +4,8 @@
 
 - moving project from react to preact, adding CLAUDE docs
 
-## 1.2.3 (2025-12-10)
-
 ### Fix
 
-- upgrading packages
 - upgrade packages
 - lint/format revamp, pre-commit hooks
 
