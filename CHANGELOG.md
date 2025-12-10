@@ -1,3 +1,10 @@
+## 1.2.3 (2025-12-10)
+
+### Fix
+
+- upgrading packages
+- upgrade packages
+
 ## 1.2.2 (2025-11-03)
 
 ### Fix
