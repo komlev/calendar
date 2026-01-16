@@ -1,11 +1,8 @@
-## 1.3.0 (2025-12-10)
-
-### Feat
-
-- moving project from react to preact, adding CLAUDE docs
+## 1.3.1 (2026-01-16)
 
 ### Fix
 
+- updating packages to a newer version
 - upgrade packages
 - lint/format revamp, pre-commit hooks
 
