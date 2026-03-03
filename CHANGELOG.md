@@ -1,8 +1,8 @@
-## 1.3.1 (2026-01-16)
+## 1.3.2 (2026-03-03)
 
 ### Fix
 
-- updating packages to a newer version
+- fixing theme switching for light theme
 - upgrade packages
 - lint/format revamp, pre-commit hooks
 
