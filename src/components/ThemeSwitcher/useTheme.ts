@@ -2,9 +2,14 @@ import { useEffect, useState } from "preact/hooks";
 
 const getIsDarkTheme = () => {
   try {
-    return localStorage.getItem("isdark") === "true";
+    const stored = localStorage.getItem("isdark");
+    if (stored !== null) {
+      return stored === "true";
+    }
+    // isdark=false means dark mode, so negate system preference
+    return !window?.matchMedia("(prefers-color-scheme: dark)").matches;
   } catch (_err) {
-    return !!window?.matchMedia("(prefers-color-scheme: dark)").matches;
+    return !window?.matchMedia("(prefers-color-scheme: dark)").matches;
   }
 };
 
