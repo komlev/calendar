@@ -5,9 +5,9 @@ export const ThemeSwitcher = () => {
   const { isdark, setIsdark } = useTheme();
 
   useLayoutEffect(() => {
-    document
-      ?.querySelector("html")
-      ?.setAttribute("class", isdark ? "light" : "dark");
+    const html = document?.querySelector("html");
+    html?.setAttribute("class", isdark ? "light" : "dark");
+    html?.setAttribute("data-theme", isdark ? "bumblebee" : "coffee");
   }, [isdark]);
 
   return (
