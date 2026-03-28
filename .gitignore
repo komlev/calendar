@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 public/google*.html
 .claude/settings.local.json
+coverage/
