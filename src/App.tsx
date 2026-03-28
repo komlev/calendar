@@ -3,7 +3,7 @@ import { ColumnView } from "./components/ColumnView/ColumnView";
 import { Footer } from "./components/Footer/Footer";
 import { Header } from "./components/Header/Header";
 import { HelpModal } from "./components/HelpModal/HelpModal";
-import { LabelModel } from "./components/LabelModel/LabelModel";
+import { LabelModal } from "./components/LabelModal/LabelModal";
 import { LinearView } from "./components/LinearView/LinearView";
 import { MonthsView } from "./components/MonthsView/MonthsView";
 import { Notifications } from "./components/Notifications/Notifications";
@@ -29,7 +29,7 @@ export const App: FC = () => {
         {tab === "Linear" && <LinearView year={year} />}
         {tab === "Columns" && <ColumnView year={year} />}
       </main>
-      <LabelModel
+      <LabelModal
         id={labelEditId}
         onClose={() => {
           onEditLabel();

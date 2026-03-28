@@ -101,6 +101,34 @@ export const CalendarCell: FC<Props> = memo(
         if (e?.key?.toLowerCase() === "enter") {
           onEditLabel(id);
         }
+        return;
+      }
+
+      if (["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(e.key)) {
+        e.preventDefault();
+        const td = (e.currentTarget as HTMLElement).closest("td");
+        if (!td) return;
+
+        let targetTd: Element | null = null;
+
+        if (e.key === "ArrowLeft") {
+          targetTd = td.previousElementSibling;
+        } else if (e.key === "ArrowRight") {
+          targetTd = td.nextElementSibling;
+        } else {
+          const tr = td.closest("tr");
+          if (!tr) return;
+          const cellIndex = Array.from(tr.children).indexOf(td);
+          const targetTr =
+            e.key === "ArrowUp"
+              ? tr.previousElementSibling
+              : tr.nextElementSibling;
+          targetTd = targetTr?.children[cellIndex] ?? null;
+        }
+
+        (
+          targetTd?.querySelector<HTMLElement>("[data-cell-id]") ?? null
+        )?.focus();
       }
     };
 
@@ -112,10 +140,9 @@ export const CalendarCell: FC<Props> = memo(
     const label = event?.label;
 
     return (
-      // biome-ignore lint/a11y/useAriaPropsSupportedByRole: skipping for now
       <td
         {...props}
-        aria-selected={isSelected ? true : undefined}
+        aria-current={isSelected ? "date" : undefined}
         onMouseEnter={onMouseEnter}
         onTouchStart={onTouchStart}
         data-today={isToday ? "true" : undefined}
@@ -130,9 +157,9 @@ export const CalendarCell: FC<Props> = memo(
         )}
       >
         {event && (
-          // biome-ignore lint/a11y/useKeyWithClickEvents: skipping for now
-          // biome-ignore lint/a11y/noStaticElementInteractions: skipping for now
-          <span
+          <button
+            type="button"
+            aria-label={`Edit label for ${format(date, "MMMM d, yyyy")}`}
             style={{ backgroundColor: label ? colors?.[color] : undefined }}
             onClick={() => {
               if (!getIsMobile()) {
@@ -141,17 +168,18 @@ export const CalendarCell: FC<Props> = memo(
             }}
             className={clsx(
               "font-bold text-black",
-              "absolute top-0.5 left-0.5 z-30 h-6 min-w-6 cursor-pointer rounded-sm p-0.5 whitespace-nowrap ring-amber-600 hover:opacity-100 hover:ring-2",
+              "absolute top-0.5 left-0.5 z-30 h-6 min-w-6 cursor-pointer rounded-sm border-0 bg-transparent p-0.5 whitespace-nowrap ring-amber-600 hover:opacity-100 hover:ring-2",
               !label &&
                 "dark:bg-base-100 hidden items-center justify-center bg-white opacity-0 md:flex",
             )}
           >
             {!label && <EditIcon className="text-base-content w-4" />}
             {label}
-          </span>
+          </button>
         )}
         <button
           type="button"
+          data-cell-id={id}
           className="relative z-2 flex h-full w-full cursor-pointer items-end justify-end pr-0.5 pb-0.5"
           onMouseDown={onMouseDown}
           onKeyDown={onKeyboardClick}

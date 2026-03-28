@@ -2,9 +2,12 @@ import { persistentAtom } from "@nanostores/persistent";
 import { toMerged } from "es-toolkit";
 import isEmpty from "es-toolkit/compat/isEmpty";
 import omitBy from "es-toolkit/compat/omitBy";
+import type { Palette, Pattern } from "../style/colors";
+
+export type EventType = `${Palette}.${Pattern}`;
 
 export type Event = {
-  type: string;
+  type: EventType;
   label?: string;
 };
 
@@ -20,7 +23,7 @@ export const $calendar = persistentAtom<Calendar>(
 
 const shouldOmit = (value: Event) => !value || isEmpty(value);
 
-export const toggleEvent = (type: string, dayId: string) => {
+export const toggleEvent = (type: EventType, dayId: string) => {
   const prev = $calendar.get();
   let event: Event = prev[dayId];
 
@@ -55,9 +58,17 @@ export const exportCalendar = () => {
 
 export const importCalendar = (data: string) => {
   const prevDate = $calendar.get();
-  const newData = JSON.parse(data);
+  const newData: unknown = JSON.parse(data);
 
-  $calendar.set(toMerged(prevDate, newData));
+  if (
+    typeof newData !== "object" ||
+    newData === null ||
+    Array.isArray(newData)
+  ) {
+    throw new Error("Invalid calendar data: expected a JSON object");
+  }
+
+  $calendar.set(toMerged(prevDate, newData as Calendar));
 };
 
 export const getCalendarCell = (dayId: string) => {

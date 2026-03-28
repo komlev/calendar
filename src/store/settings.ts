@@ -25,27 +25,13 @@ export const $settings = persistentAtom<Settings>("settings", DEFAULTS, {
   decode: JSON.parse,
 });
 
-export const onColorPick = (color: Palette) => {
-  const value = $settings.get();
-  $settings.set({ ...value, color });
-};
+const updateSetting =
+  <K extends keyof Settings>(key: K) =>
+  (value: Settings[K]) =>
+    $settings.set({ ...$settings.get(), [key]: value });
 
-export const onPatternPick = (pattern: Pattern) => {
-  const value = $settings.get();
-  $settings.set({ ...value, pattern });
-};
-
-export const onTabChange = (tab: Tab) => {
-  const value = $settings.get();
-  $settings.set({ ...value, tab });
-};
-
-export const onYearChange = (year: number) => {
-  const value = $settings.get();
-  $settings.set({ ...value, year });
-};
-
-export const onHelp = (value: boolean) => {
-  const current = $settings.get();
-  $settings.set({ ...current, help: value });
-};
+export const onColorPick = updateSetting("color");
+export const onPatternPick = updateSetting("pattern");
+export const onTabChange = updateSetting("tab");
+export const onYearChange = updateSetting("year");
+export const onHelp = updateSetting("help");

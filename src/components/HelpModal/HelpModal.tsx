@@ -58,6 +58,14 @@ export const HelpModal = () => {
               />{" "}
               icon in the header.
             </li>
+            <li>
+              To add a <b>label</b> to a colored day, click the{" "}
+              <span className="badge badge-sm badge-ghost">✏️</span> edit icon
+              that appears on hover in the top left corner, or long-press the
+              day on mobile. Type your label and press{" "}
+              <span className="kbd kbd-sm">Enter</span> or <b>Set Label</b> to
+              save.
+            </li>
           </ul>
           <b>✋ Enjoy planning your year!</b>
         </div>

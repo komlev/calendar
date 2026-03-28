@@ -1,8 +1,13 @@
-## 1.3.2 (2026-03-03)
+## 1.4.0 (2026-03-28)
+
+### Feat
+
+- add arrow key navigation for calendar cells
 
 ### Fix
 
-- fixing theme switching for light theme
+- code quality improvements and bug fixes
+- code quality improvements and bug fixes
 - upgrade packages
 - lint/format revamp, pre-commit hooks
 
