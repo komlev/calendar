@@ -10,7 +10,7 @@ const htmlPlugin = () => {
   return {
     name: "html-transform",
     transformIndexHtml(html: string) {
-      return html.replace(/APP_VERSION/, pack.version);
+      return html.replace(/APP_VERSION/g, pack.version);
     },
   };
 };

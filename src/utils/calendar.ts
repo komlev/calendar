@@ -1,7 +1,8 @@
+import type { EventType } from "../store/calendar";
 import { colors, type Palette, type Pattern, patterns } from "../style/colors";
 
-export const getEventId = (color: Palette, pattern: Pattern) =>
-  `${color}.${pattern}`;
+export const getEventId = (color: Palette, pattern: Pattern): EventType =>
+  `${color}.${pattern}` as EventType;
 
 export const getBackgroundProperty = (color: Palette, pattern: Pattern) => {
   const bgColor = colors[color] || colors.red;

@@ -10,7 +10,7 @@ type Props = {
   onClose: () => void;
 };
 
-export const LabelModel: FC<Props> = ({ id, onClose }) => {
+export const LabelModal: FC<Props> = ({ id, onClose }) => {
   const [value, setValue] = useState("");
   const isOpen = !!id;
 

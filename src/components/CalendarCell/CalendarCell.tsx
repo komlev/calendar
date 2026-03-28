@@ -112,10 +112,9 @@ export const CalendarCell: FC<Props> = memo(
     const label = event?.label;
 
     return (
-      // biome-ignore lint/a11y/useAriaPropsSupportedByRole: skipping for now
       <td
         {...props}
-        aria-selected={isSelected ? true : undefined}
+        aria-current={isSelected ? "date" : undefined}
         onMouseEnter={onMouseEnter}
         onTouchStart={onTouchStart}
         data-today={isToday ? "true" : undefined}
@@ -130,9 +129,9 @@ export const CalendarCell: FC<Props> = memo(
         )}
       >
         {event && (
-          // biome-ignore lint/a11y/useKeyWithClickEvents: skipping for now
-          // biome-ignore lint/a11y/noStaticElementInteractions: skipping for now
-          <span
+          <button
+            type="button"
+            aria-label={`Edit label for ${format(date, "MMMM d, yyyy")}`}
             style={{ backgroundColor: label ? colors?.[color] : undefined }}
             onClick={() => {
               if (!getIsMobile()) {
@@ -141,14 +140,14 @@ export const CalendarCell: FC<Props> = memo(
             }}
             className={clsx(
               "font-bold text-black",
-              "absolute top-0.5 left-0.5 z-30 h-6 min-w-6 cursor-pointer rounded-sm p-0.5 whitespace-nowrap ring-amber-600 hover:opacity-100 hover:ring-2",
+              "absolute top-0.5 left-0.5 z-30 h-6 min-w-6 cursor-pointer rounded-sm border-0 bg-transparent p-0.5 whitespace-nowrap ring-amber-600 hover:opacity-100 hover:ring-2",
               !label &&
                 "dark:bg-base-100 hidden items-center justify-center bg-white opacity-0 md:flex",
             )}
           >
             {!label && <EditIcon className="text-base-content w-4" />}
             {label}
-          </span>
+          </button>
         )}
         <button
           type="button"

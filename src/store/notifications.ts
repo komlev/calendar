@@ -1,3 +1,4 @@
+import { nanoid } from "nanoid";
 import { atom } from "nanostores";
 import type { ReactNode } from "preact/compat";
 
@@ -11,11 +12,11 @@ export type Notification = {
 
 export const $notifications = atom<Notification[]>([]);
 
-let id = 0;
-const getId = () => `${id++}`;
-
 export const addNotification = (content: ReactNode, type: TYPE = "info") => {
-  $notifications.set([...$notifications.get(), { id: getId(), content, type }]);
+  $notifications.set([
+    ...$notifications.get(),
+    { id: nanoid(), content, type },
+  ]);
 };
 
 export const removeNotification = (id: string) => {

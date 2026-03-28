@@ -62,12 +62,12 @@ export const LinearView: FC<Props> = ({ year }) => {
                         </td>
                       )}
                       <CalendarCell
-                        id={id!}
+                        id={id ?? ""}
                         date={date}
                         isSelected={
                           !!command.selected && id === command.selected
                         }
-                        event={calendar?.[id!]}
+                        event={id ? calendar?.[id] : undefined}
                         className="h-12"
                       />
                     </Fragment>

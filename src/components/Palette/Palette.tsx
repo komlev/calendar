@@ -8,9 +8,10 @@ import type {
 import { colors, patterns } from "../../style/colors";
 import { PaletteBtn } from "./PaletteBtn";
 
+const allPatterns = ["solid", ...Object.keys(patterns)];
+
 export const Palette = memo(() => {
   const { color, pattern } = useSettings();
-  const allPatterns = ["solid", ...Object.keys(patterns)];
 
   return (
     <div className="sticky top-4 z-40 flex justify-center print:hidden">

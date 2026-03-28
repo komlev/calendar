@@ -37,11 +37,11 @@ export const ColumnView: FC<Props> = ({ year }) => {
                   const { id, date } = data || {};
                   return (
                     <CalendarCell
-                      id={id!}
+                      id={id ?? ""}
                       key={`${id}_${cellIndex}`}
                       date={date}
                       isSelected={id === command.selected}
-                      event={calendar?.[id!]}
+                      event={id ? calendar?.[id] : undefined}
                       className="h-10"
                     />
                   );

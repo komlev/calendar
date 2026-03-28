@@ -53,11 +53,11 @@ export const MonthsItem: FC<Props> = memo(({ month, year, ...props }) => {
                 const { id, date } = data || {};
                 return (
                   <CalendarCell
-                    id={id!}
+                    id={id ?? ""}
                     key={`${rowIndex}_${dayIndex}`}
                     date={date}
                     isSelected={id === command.selected}
-                    event={calendar?.[id!]}
+                    event={id ? calendar?.[id] : undefined}
                     className="h-15 w-15 print:h-12 print:w-12"
                   />
                 );
