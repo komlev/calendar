@@ -101,6 +101,34 @@ export const CalendarCell: FC<Props> = memo(
         if (e?.key?.toLowerCase() === "enter") {
           onEditLabel(id);
         }
+        return;
+      }
+
+      if (["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(e.key)) {
+        e.preventDefault();
+        const td = (e.currentTarget as HTMLElement).closest("td");
+        if (!td) return;
+
+        let targetTd: Element | null = null;
+
+        if (e.key === "ArrowLeft") {
+          targetTd = td.previousElementSibling;
+        } else if (e.key === "ArrowRight") {
+          targetTd = td.nextElementSibling;
+        } else {
+          const tr = td.closest("tr");
+          if (!tr) return;
+          const cellIndex = Array.from(tr.children).indexOf(td);
+          const targetTr =
+            e.key === "ArrowUp"
+              ? tr.previousElementSibling
+              : tr.nextElementSibling;
+          targetTd = targetTr?.children[cellIndex] ?? null;
+        }
+
+        (
+          targetTd?.querySelector<HTMLElement>("[data-cell-id]") ?? null
+        )?.focus();
       }
     };
 
@@ -151,6 +179,7 @@ export const CalendarCell: FC<Props> = memo(
         )}
         <button
           type="button"
+          data-cell-id={id}
           className="relative z-2 flex h-full w-full cursor-pointer items-end justify-end pr-0.5 pb-0.5"
           onMouseDown={onMouseDown}
           onKeyDown={onKeyboardClick}
